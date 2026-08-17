@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 700">
+  <defs>
+    
+    <pattern id="hgr1" width="60" height="60" patternUnits="userSpaceOnUse">
+      <rect width="60" height="60" fill="none"/>
+      <path d="M 56.0,30.0 L 40.2,34.2 L 48.4,48.4 L 34.2,40.2 L 30.0,56.0 L 25.8,40.2 L 11.6,48.4 L 19.8,34.2 L 4.0,30.0 L 19.8,25.8 L 11.6,11.6 L 25.8,19.8 L 30.0,4.0 L 34.2,19.8 L 48.4,11.6 L 40.2,25.8 Z" fill="none" stroke="#B8892B" stroke-width="1" opacity="0.35"/>
+      <circle cx="30" cy="30" r="4" fill="#B8892B" opacity="0.35"/>
+    </pattern>
+    <radialGradient id="rg1" cx="50%" cy="35%" r="75%">
+      <stop offset="0" stop-color="#0F3D30"/>
+      <stop offset="1" stop-color="#0A2B22"/>
+    </radialGradient>
+  </defs>
+  <rect width="700" height="700" fill="url(#rg1)"/>
+  <rect width="700" height="700" fill="url(#hgr1)"/>
+  <rect x="26" y="26" width="648" height="648" fill="none" stroke="#B8892B" stroke-width="3"/>
+  <rect x="40" y="40" width="620" height="620" fill="none" stroke="#B8892B" stroke-width="1"/>
+  <path d="M 384.0,130.0 L 362.9,135.4 L 374.0,154.0 L 355.4,142.9 L 350.0,164.0 L 344.6,142.9 L 326.0,154.0 L 337.1,135.4 L 316.0,130.0 L 337.1,124.6 L 326.0,106.0 L 344.6,117.1 L 350.0,96.0 L 355.4,117.1 L 374.0,106.0 L 362.9,124.6 Z" fill="#B8892B"/>
+  <text x="350.0" y="270" text-anchor="middle" fill="#F6F1E6" font-size="40" font-family="'Al Qalam Quran Majeed Web','Amiri','Traditional Arabic',serif">
+    إِنَّمَا الْأَعْمَالُ بِالنِّيَّاتِ
+  </text>
+  <line x1="190.0" y1="330" x2="510.0" y2="330" stroke="#B8892B" stroke-width="1.5"/>
+  <text x="350.0" y="410" text-anchor="middle" fill="#D9B968" font-size="30" font-family="'Jameel Noori Nastaleeq','Noto Nastaliq Urdu',serif">
+    اعمال کا دار و مدار نیتوں پر ہے
+  </text>
+  <path d="M 380.0,590.0 L 361.1,594.6 L 371.2,611.2 L 354.6,601.1 L 350.0,620.0 L 345.4,601.1 L 328.8,611.2 L 338.9,594.6 L 320.0,590.0 L 338.9,585.4 L 328.8,568.8 L 345.4,578.9 L 350.0,560.0 L 354.6,578.9 L 371.2,568.8 L 361.1,585.4 Z" fill="#B8892B" opacity="0.85"/>
+</svg>

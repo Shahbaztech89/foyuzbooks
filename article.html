@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="ur" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>مضمون | محمود اسلامک لائبریری</title>
+<link rel="icon" type="image/svg+xml" href="assets/images/misc/logo-mark.svg">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Nastaliq+Urdu:wght@400;600;700&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body data-page="articles">
+
+<a href="#main" class="skip-link">مرکزی مواد پر جائیں</a>
+
+<header class="site-header">
+  <nav class="nav container">
+    <a href="index.html" class="brand">
+      <img src="assets/images/misc/logo-mark.svg" alt="لوگو">
+      <span class="brand-text">
+        <span class="brand-title">محمود اسلامک لائبریری</span>
+        <span class="brand-tag">مصنف کی سرکاری ویب سائٹ</span>
+      </span>
+    </a>
+    <button class="nav-toggle" aria-label="مینیو کھولیں" aria-expanded="false">☰</button>
+    <ul class="nav-links">
+      <li><a href="index.html" data-nav="home">ہوم</a></li>
+      <li><a href="books.html" data-nav="books">کتابیں</a></li>
+      <li><a href="articles.html" data-nav="articles">مضامین</a></li>
+      <li><a href="hadith.html" data-nav="hadith">روزانہ حدیث</a></li>
+      <li><a href="contact.html" data-nav="contact">رابطہ</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main id="main" data-article-detail>
+
+<section class="article-detail-hero">
+  <div class="container">
+    <span class="article-cat" data-article-cat></span>
+    <h1 data-article-title></h1>
+    <div class="article-detail-meta">
+      <span data-article-date></span>
+      <span data-article-readtime></span>
+    </div>
+  </div>
+</section>
+
+<div class="container">
+  <div class="article-detail-cover">
+    <img data-article-cover src="" alt="">
+  </div>
+
+  <article class="article-detail-body" data-article-body></article>
+
+  <div class="text-center">
+    <a href="articles.html" class="back-link">→ تمام مضامین کی طرف واپس جائیں</a>
+  </div>
+</div>
+
+<section class="section section--tight articles-section">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow">مزید پڑھیں</div>
+      <h2 class="section-title">متعلقہ مضامین</h2>
+    </div>
+    <div class="articles-grid" data-article-related></div>
+  </div>
+</section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-grid">
+    <div>
+      <div class="footer-brand">
+        <img src="assets/images/misc/logo-mark.svg" alt="لوگو">
+        <span>محمود اسلامک لائبریری</span>
+      </div>
+      <p class="footer-desc">200 سے زائد اسلامی کتابوں کے مصنف کی سرکاری ویب سائٹ — سیرت، تفسیر، حدیث اور تزکیہ نفس پر مبنی تحریریں مفت پڑھنے کے لیے دستیاب ہیں۔</p>
+      <div class="footer-social">
+        <a href="#" aria-label="فیس بک">f</a>
+        <a href="#" aria-label="یوٹیوب">▶</a>
+        <a href="#" aria-label="واٹس ایپ">W</a>
+        <a href="#" aria-label="ایکس">X</a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>روابط</h4>
+      <ul>
+        <li><a href="index.html">ہوم</a></li>
+        <li><a href="books.html">کتابیں</a></li>
+        <li><a href="articles.html">مضامین</a></li>
+        <li><a href="hadith.html">روزانہ حدیث</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>معلومات</h4>
+      <ul>
+        <li><a href="contact.html">ہم سے رابطہ</a></li>
+        <li><a href="index.html#author">مصنف کا تعارف</a></li>
+        <li><a href="books.html">کتابیں ڈاؤن لوڈ کریں</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>رابطہ کی تفصیلات</h4>
+      <ul>
+        <li>info@example.com</li>
+        <li>+92 300 0000000</li>
+        <li>کراچی، پاکستان</li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom container">
+    © <span id="year"></span> محمود اسلامک لائبریری — جملہ حقوق محفوظ ہیں۔
+  </div>
+</footer>
+
+<script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+<script defer src="assets/js/data.js"></script>
+<script defer src="assets/js/main.js"></script>
+</body>
+</html>

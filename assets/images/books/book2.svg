@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 560">
+  <defs>
+    
+    <pattern id="grh14" width="60" height="60" patternUnits="userSpaceOnUse">
+      <rect width="60" height="60" fill="none"/>
+      <path d="M 56.0,30.0 L 40.2,34.2 L 48.4,48.4 L 34.2,40.2 L 30.0,56.0 L 25.8,40.2 L 11.6,48.4 L 19.8,34.2 L 4.0,30.0 L 19.8,25.8 L 11.6,11.6 L 25.8,19.8 L 30.0,4.0 L 34.2,19.8 L 48.4,11.6 L 40.2,25.8 Z" fill="none" stroke="#D9B968" stroke-width="1" opacity="0.35"/>
+      <circle cx="30" cy="30" r="4" fill="#D9B968" opacity="0.35"/>
+    </pattern>
+    <linearGradient id="bg14" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#6E1E2C"/>
+      <stop offset="1" stop-color="#0A2B22"/>
+    </linearGradient>
+  </defs>
+  <rect width="400" height="560" fill="url(#bg14)"/>
+  <rect width="400" height="560" fill="url(#grh14)"/>
+  <rect x="18" y="18" width="364" height="524" fill="none" stroke="#B8892B" stroke-width="3"/>
+  <rect x="28" y="28" width="344" height="504" fill="none" stroke="#B8892B" stroke-width="1"/>
+  <path d="M 270.0,212.8 L 227.7,224.3 L 249.5,262.3 L 211.5,240.5 L 200.0,282.8 L 188.5,240.5 L 150.5,262.3 L 172.3,224.3 L 130.0,212.8 L 172.3,201.3 L 150.5,163.3 L 188.5,185.1 L 200.0,142.8 L 211.5,185.1 L 249.5,163.3 L 227.7,201.3 Z" fill="#B8892B" opacity="0.9"/>
+  <path d="M 246.0,212.8 L 217.6,220.1 L 232.5,245.3 L 207.3,230.4 L 200.0,258.8 L 192.7,230.4 L 167.5,245.3 L 182.4,220.1 L 154.0,212.8 L 182.4,205.5 L 167.5,180.3 L 192.7,195.2 L 200.0,166.8 L 207.3,195.2 L 232.5,180.3 L 217.6,205.5 Z" fill="#6E1E2C"/>
+  <path d="M 230.0,212.8 L 211.1,217.4 L 221.2,234.0 L 204.6,223.9 L 200.0,242.8 L 195.4,223.9 L 178.8,234.0 L 188.9,217.4 L 170.0,212.8 L 188.9,208.2 L 178.8,191.6 L 195.4,201.7 L 200.0,182.8 L 204.6,201.7 L 221.2,191.6 L 211.1,208.2 Z" fill="#D9B968"/>
+  <g opacity="0.9">
+    <path d="M 110.0 380.8 h180 M 130.0 403.2 h140 M 150.0 425.6 h100" stroke="#B8892B" stroke-width="2" stroke-linecap="round"/>
+  </g>
+</svg>
