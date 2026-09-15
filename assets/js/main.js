@@ -13,7 +13,34 @@ document.addEventListener("DOMContentLoaded", () => {
   initArticleDetail();
   initContactForm();
   markActiveNav();
+  renderAuthorAndContact();
 });
+
+/* ---------- Fill in real author + contact details ---------- */
+function renderAuthorAndContact() {
+  if (typeof SITE_AUTHOR !== "undefined") {
+    document.querySelectorAll("[data-author-name]").forEach(el => (el.textContent = SITE_AUTHOR.name));
+    document.querySelectorAll("[data-author-role]").forEach(el => (el.textContent = SITE_AUTHOR.role));
+    document.querySelectorAll("[data-author-books-count]").forEach(el => (el.textContent = SITE_AUTHOR.booksCount));
+    document.querySelectorAll("[data-author-articles-count]").forEach(el => (el.textContent = SITE_AUTHOR.articlesCount));
+    document.querySelectorAll("[data-author-cited-count]").forEach(el => (el.textContent = SITE_AUTHOR.citedByCount));
+  }
+  if (typeof SITE_CONTACT !== "undefined") {
+    document.querySelectorAll("[data-contact-address]").forEach(el => (el.textContent = SITE_CONTACT.address));
+    document.querySelectorAll("[data-contact-mobile]").forEach(el => (el.textContent = `${SITE_CONTACT.mobile1} · ${SITE_CONTACT.mobile2}`));
+    document.querySelectorAll("[data-contact-email]").forEach(el => {
+      el.textContent = SITE_CONTACT.email;
+      if (el.tagName === "A") el.href = `mailto:${SITE_CONTACT.email}`;
+    });
+    document.querySelectorAll("[data-contact-whatsapp]").forEach(el => (el.textContent = SITE_CONTACT.whatsapp));
+    document.querySelectorAll("[data-social-facebook]").forEach(el => (el.href = SITE_CONTACT.facebook));
+    document.querySelectorAll("[data-social-twitter]").forEach(el => (el.href = SITE_CONTACT.twitter));
+    document.querySelectorAll("[data-social-telegram]").forEach(el => (el.href = SITE_CONTACT.telegram));
+    document.querySelectorAll("[data-social-whatsapp]").forEach(el => (el.href = `https://wa.me/${SITE_CONTACT.whatsapp.replace(/[^\d]/g, "")}`));
+    const mapFrame = document.querySelector("[data-map-frame]");
+    if (mapFrame) mapFrame.src = `https://www.google.com/maps?q=${encodeURIComponent(SITE_CONTACT.mapQuery)}&output=embed`;
+  }
+}
 
 /* ---------- Mobile nav ---------- */
 function initNav() {
@@ -105,10 +132,10 @@ function bookCardHTML(book) {
       <div class="book-body">
         <span class="badge-tag">${book.category}</span>
         <h3 class="book-name">${book.title}</h3>
-        <p class="book-meta">${book.pages} صفحات</p>
+        <p class="book-meta">${book.meta || ""}</p>
         <div class="book-actions">
           <a class="btn btn-outline-dark" href="${book.readUrl}" target="_blank" rel="noopener">آن لائن پڑھیں</a>
-          <a class="btn btn-gold" href="${book.downloadUrl}" download>ڈاؤن لوڈ کریں</a>
+          <a class="btn btn-gold" href="${book.downloadUrl}" target="_blank" rel="noopener">ڈاؤن لوڈ کریں</a>
         </div>
       </div>
     </article>`;
@@ -160,6 +187,12 @@ function initBookFilter() {
 
 /* ---------- Articles rendering ---------- */
 function articleCardHTML(article) {
+  const metaLine = article.comingSoon
+    ? `<span class="badge-tag">جلد آ رہا ہے</span>`
+    : `<span>${article.date}</span>`;
+  const linkHTML = article.comingSoon
+    ? `<span style="color:var(--ink-soft);">جلد آ رہا ہے</span>`
+    : `<a href="${article.externalUrl}" target="_blank" rel="noopener">پورا پڑھیں ←</a>`;
   return `
     <article class="article-card reveal">
       <div class="article-thumb">
@@ -170,8 +203,8 @@ function articleCardHTML(article) {
         <h3 class="article-title">${article.title}</h3>
         <p class="article-excerpt">${article.excerpt}</p>
         <div class="article-foot">
-          <span>${article.date} · ${article.readTime}</span>
-          <a href="article.html?id=${article.id}" target="_blank" rel="noopener">پورا پڑھیں ←</a>
+          ${metaLine}
+          ${linkHTML}
         </div>
       </div>
     </article>`;
@@ -188,41 +221,21 @@ function renderArticles() {
   }
 }
 
-/* ---------- Article detail page ---------- */
+/* ---------- Article detail page ----------
+   Articles now open on the author's original blog (foyuz.blogspot.com)
+   in a new tab instead of a local detail page, so this page is no
+   longer used, but kept harmless in case article.html is still linked
+   anywhere. */
 function initArticleDetail() {
   const wrap = document.querySelector("[data-article-detail]");
   if (!wrap) return;
-  const params = new URLSearchParams(window.location.search);
-  const id = params.get("id");
-  const article = SITE_ARTICLES.find(a => a.id === id) || SITE_ARTICLES[0];
-  if (!article) return;
-
-  document.title = `${article.title} | محمود اسلامک لائبریری`;
-  document.querySelector("[data-article-cat]").textContent = article.category;
-  document.querySelector("[data-article-title]").textContent = article.title;
-  document.querySelector("[data-article-date]").textContent = article.date;
-  document.querySelector("[data-article-readtime]").textContent = article.readTime;
-  const coverImg = document.querySelector("[data-article-cover]");
-  if (coverImg) {
-    coverImg.src = article.cover;
-    coverImg.alt = article.title;
-  }
-
-  const bodyWrap = document.querySelector("[data-article-body]");
-  bodyWrap.innerHTML = article.body
-    .map(block => {
-      if (block.type === "h2") return `<h2>${block.text}</h2>`;
-      if (block.type === "quote") return `<div class="article-quote">${block.text}</div>`;
-      return `<p>${block.text}</p>`;
-    })
-    .join("");
-
-  // related articles
-  const relatedWrap = document.querySelector("[data-article-related]");
-  if (relatedWrap) {
-    const related = SITE_ARTICLES.filter(a => a.id !== article.id).slice(0, 2);
-    relatedWrap.innerHTML = related.map(articleCardHTML).join("");
-  }
+  wrap.innerHTML = `
+    <section class="section text-center">
+      <div class="container">
+        <p>مضامین اب براہِ راست مصنف کی اصل ویب سائٹ پر نئے ٹیب میں کھلتے ہیں۔</p>
+        <a href="articles.html" class="back-link">→ تمام مضامین کی طرف واپس جائیں</a>
+      </div>
+    </section>`;
 }
 
 /* ---------- Hadith gallery rendering ---------- */
