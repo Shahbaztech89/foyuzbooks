@@ -4,10 +4,10 @@
 document.addEventListener("DOMContentLoaded", () => {
   initNav();
   initHeroSlider();
-  initScrollReveal();
   renderBooks();
   renderArticles();
   renderHadith();
+  initScrollReveal();
   initLightbox();
   initBookFilter();
   initArticleDetail();
@@ -106,8 +106,16 @@ function initHeroSlider() {
 
 /* ---------- Scroll reveal ---------- */
 function initScrollReveal() {
-  const items = document.querySelectorAll(".reveal");
+  const items = document.querySelectorAll(".reveal:not(.in)");
   if (!items.length) return;
+
+  // Safety net: if IntersectionObserver isn't available for any reason,
+  // just show everything instead of leaving it invisible.
+  if (!("IntersectionObserver" in window)) {
+    items.forEach(i => i.classList.add("in"));
+    return;
+  }
+
   const io = new IntersectionObserver(
     entries => {
       entries.forEach(e => {
@@ -120,6 +128,12 @@ function initScrollReveal() {
     { threshold: 0.12 }
   );
   items.forEach(i => io.observe(i));
+
+  // Extra safety net: guarantee nothing stays invisible forever even if a
+  // card is added dynamically after this scan and never gets observed.
+  setTimeout(() => {
+    document.querySelectorAll(".reveal:not(.in)").forEach(i => i.classList.add("in"));
+  }, 2500);
 }
 
 /* ---------- Books rendering ---------- */
