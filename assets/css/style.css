@@ -270,8 +270,10 @@ button{ font-family: inherit; cursor: pointer; }
   transition: opacity .8s ease;
   display: flex;
   align-items: center;
+  justify-content: center;
+  z-index: 0;
 }
-.hero-slide.active{ opacity: 1; visibility: visible; position: relative; }
+.hero-slide.active{ opacity: 1; visibility: visible; z-index: 1; }
 .hero-slide-bg{
   position: absolute;
   inset: 0;
@@ -283,20 +285,34 @@ button{ font-family: inherit; cursor: pointer; }
 .hero-slide-overlay{
   position: absolute;
   inset: 0;
-  background: linear-gradient(90deg, rgba(10,43,34,0.88) 20%, rgba(10,43,34,0.45) 75%);
+  background: linear-gradient(180deg, rgba(10,43,34,0.55) 0%, rgba(10,43,34,0.72) 100%);
   z-index: 1;
 }
 .hero-content{
   position: relative;
   z-index: 2;
-  max-width: 640px;
+  max-width: 720px;
+  width: 100%;
+  margin: 0 auto;
   padding: 100px 24px;
+  text-align: center;
 }
 .hero-eyebrow{
   color: var(--gold-light);
   font-size: 17px;
   margin-bottom: 14px;
   letter-spacing: .4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+.hero-eyebrow::before,
+.hero-eyebrow::after{
+  content: "";
+  width: 26px;
+  height: 1px;
+  background: var(--gold-light);
 }
 .hero-title{
   font-size: 52px;
@@ -308,10 +324,10 @@ button{ font-family: inherit; cursor: pointer; }
 .hero-desc{
   font-size: 19px;
   color: var(--parchment-2);
-  margin-bottom: 30px;
+  margin: 0 auto 30px;
   max-width: 560px;
 }
-.hero-actions{ display: flex; gap: 14px; flex-wrap: wrap; }
+.hero-actions{ display: flex; gap: 14px; flex-wrap: wrap; justify-content: center; }
 
 .slider-dots{
   position: absolute;
